@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<context:component-scan base-package="com.jvs.resthibernate.controller" />
+		
+	<context:annotation-config/>
+
+	<!-- Handles HTTP GET requests for /static/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->		
+	<mvc:resources mapping="/static/**" location="/resources/" />	
+	<!--
+	Sample: ("/spring" is the ${pageContext.request.contextPath} in JSPs)
+	1- Requested URL = http://localhost:8080/spring/static/scripts/header/general.js
+	Spring Converted to this = http://localhost:8080/resources/scripts/header/general.js
+	2- Requested URL = http://localhost:8080/spring/static/images/loading2.gif
+	Spring Converted to this = http://localhost:8080/resources/images/loading2.gif
+	-->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven />	
+
+	<!-- Tiles2 Config -->
+	<!--bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver" /-->
+	
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+  		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+	</bean>	
+
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles-defs.xml</value>
+			</list>
+		</property>
+	</bean>	
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!--bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean-->
+	
+	<!-- Internationalization (i18n) / Localization (L10n) -->
+	<!--bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"-->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	    <property name="basename" value="classpath:messages" />
+	    <property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	
+	<!-- The LocaleChangeInterceptor is configured to look for the parameter name 'locale' to indicate a change  
+	     of the user's locale, and is registered as an interceptor -->
+	<mvc:interceptors>
+		<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	    	<property name="paramName" value="locale" />
+		</bean>
+	</mvc:interceptors>
+	
+	<!-- Declare the Resolver -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en"/>
+	</bean>
+	
+
+	<!-- Total customization - see below for explanation. -->
+	 <!--bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+	    <property name="favorPathExtension" value="true" />
+	    <property name="favorParameter" value="false" />
+	    <property name="parameterName" value="mediaType" />
+	    <property name="ignoreAcceptHeader" value="true"/>
+	    <property name="useJaf" value="false"/>
+	    <property name="defaultContentType" value="text/html" />
+	
+	    <property name="mediaTypes">
+	        <map>
+	        	<entry key="html" value="text/html" />
+	            <entry key="json" value="application/json" />
+	            <entry key="xml" value="application/xml" />
+	       </map>
+	    </property>
+	</bean-->	
+	
+</beans>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="vwHome" template="/WEB-INF/layouts/classic.jsp">
+		<put-attribute name="title" value="Home" />		
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />		
+		<put-attribute name="topLinks" value="/WEB-INF/tiles/topLinks.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />		
+		<put-attribute name="pageTitle" value="Home" />
+		<put-attribute name="pageContent" value="/WEB-INF/tiles/pageContent.jsp" />
+	</definition>
+
+
+	<definition name="vwLogin" template="/WEB-INF/layouts/layoutLogin.jsp">
+		<put-attribute name="title" value="Login page" />				
+		<put-attribute name="content" value="/WEB-INF/views/sb-admin-v2/login.jsp" />	
+	</definition>
+	
+
+	<!-- ========================== METRO section ========================== -->
+	
+	<definition name="vwDashboard" extends="vwHome">
+		<put-attribute name="title" value="Dashboard" />
+		<put-attribute name="pageTitle" value="Dashboard" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/dashboard.jsp" />
+	</definition>
+	<definition name="vwFlotCharts" extends="vwHome">
+		<put-attribute name="title" value="Flot Charts" />
+		<put-attribute name="pageTitle" value="Flot Charts" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/flotCharts.jsp" />
+	</definition>	
+	<definition name="vwMorrisCharts" extends="vwHome">
+		<put-attribute name="title" value="Morris Charts" />
+		<put-attribute name="pageTitle" value="Morris Charts" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/morrisCharts.jsp" />
+	</definition>	
+	<definition name="vwTables" extends="vwHome">
+		<put-attribute name="title" value="Tables" />
+		<put-attribute name="pageTitle" value="Tables" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/tables.jsp" />
+	</definition>	
+	<definition name="vwForms" extends="vwHome">
+		<put-attribute name="title" value="Forms" />
+		<put-attribute name="pageTitle" value="Forms" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/forms.jsp" />
+	</definition>		
+	<definition name="vwPanelsWells" extends="vwHome">
+		<put-attribute name="title" value="Panels and Wells" />
+		<put-attribute name="pageTitle" value="Panels and Wells" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/panels-wells.jsp" />
+	</definition>		
+	<definition name="vwButtons" extends="vwHome">
+		<put-attribute name="title" value="Buttons" />
+		<put-attribute name="pageTitle" value="Buttons" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/buttons.jsp" />
+	</definition>		
+	<definition name="vwNotifications" extends="vwHome">
+		<put-attribute name="title" value="Notifications" />
+		<put-attribute name="pageTitle" value="Notifications" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/notifications.jsp" />
+	</definition>		
+	<definition name="vwTypography" extends="vwHome">
+		<put-attribute name="title" value="Typography" />
+		<put-attribute name="pageTitle" value="Typography" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/typography.jsp" />
+	</definition>	
+	<definition name="vwGrid" extends="vwHome">
+		<put-attribute name="title" value="Grid" />
+		<put-attribute name="pageTitle" value="Grid" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/grid.jsp" />
+	</definition>	
+	<definition name="vwBlank" extends="vwHome">
+		<put-attribute name="title" value="Blank page" />
+		<put-attribute name="pageTitle" value="Blank" />		
+		<put-attribute name="pageContent" value="/WEB-INF/views/sb-admin-v2/blank.jsp" />
+	</definition>	
+
+
+	<!-- ========================== Offers section ========================== -->
+
+	<definition name="vwshowCreateOfferFormPage" extends="vwHome">
+		<put-attribute name="title" value="Create an offer" />
+		<put-attribute name="pageTitle" value="Create an offer" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/Offers/createOffer.jsp" />
+	</definition>
+
+	<definition name="vwShowAllOffersPage" extends="vwHome">
+		<put-attribute name="title" value="List offers" />
+		<put-attribute name="pageTitle" value="List offers" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/Offers/offerList.jsp" />
+	</definition>
+
+
+
+	<!-- ========================== Errors section ========================== -->
+
+	<definition name="vwError" extends="vwHome">
+		<put-attribute name="title" value="Error" />
+		<put-attribute name="pageTitle" value="Error" />
+		<put-attribute name="pageContent" value="/WEB-INF/views/exceptions/error.jsp" />
+	</definition>	
+			
+			
+			
+</tiles-definitions>
